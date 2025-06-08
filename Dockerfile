@@ -1,24 +1,26 @@
-FROM ubuntu:latest AS build
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-RUN apt-get update
-RUN apt-get install -y openjdk-17-jdk
-COPY . .
+WORKDIR /build
 
-RUN apt-get install maven -y
-RUN mvn clean install
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-FROM openjdk:17-jdk-slim
+COPY src ./src
 
-EXPOSE 8080
+RUN mvn clean package -DskipTests
 
-RUN useradd -ms /bin/bash appuser
+FROM eclipse-temurin:17-jdk-alpine
+
+RUN adduser -D -H -s /bin/sh appuser
 
 WORKDIR /app
 
-COPY --from=builder /build/target/salvando-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /build/target/*.jar app.jar
 
-RUN chown -R appuser:appuser /app\classes\br\com\salvando\salvando\SalvandoApplication.class
+RUN chown appuser:appuser app.jar
 
 USER appuser
+
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
