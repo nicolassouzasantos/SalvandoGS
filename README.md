@@ -1,7 +1,7 @@
 Links:
 Repositório GitHub: https://github.com/nicolassouzasantos/SalvandoGS
 Link do deploy no Render: https://salvandogs.onrender.com ou já na página da documentação do Swagger: https://salvandogs.onrender.com/swagger-ui/index.html (swagger dá erro 500 ao abrir depois de fazer o deploy, tentei de tudo pra ajustar mas não achei a resposta, abaixo segue as tabelas da documentação).
-Link para vídeo demonstração da solução completa: https://youtu.be/-mk3kKzbZC0?si=PGk_APBmZzJLvnsV
+Link para vídeo demonstração da solução completa: [https://youtu.be/-mk3kKzbZC0?si=PGk_APBmZzJLvnsV](https://youtu.be/OfXLEy6iv80?si=p3Hi1vh0lEpX5VvM)
 
 Vamos aos testes do CRUD: 
 
