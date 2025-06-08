@@ -1,4 +1,4 @@
-package br.com.salvando.salvando;
+package br.com.salvando;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
